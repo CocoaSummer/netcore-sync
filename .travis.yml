@@ -1,0 +1,27 @@
+language: bash
+services:
+  - docker
+branches:
+  only:
+    - master
+script:
+  - docker pull mcr.microsoft.com/dotnet/core/aspnet:$tag_aspnet_arm
+  - docker pull mcr.microsoft.com/dotnet/core/aspnet:$tag_x64
+
+  - docker pull mcr.microsoft.com/dotnet/core/sdk:$tag_sdk_arm
+  - docker pull mcr.microsoft.com/dotnet/core/sdk:$tag_x64
+
+after_success:
+  - docker login --username=$docker_username --password=$docker_password registry.cn-hangzhou.aliyuncs.com
+
+  - docker tag mcr.microsoft.com/dotnet/core/aspnet:$tag_aspnet_arm registry.cn-hangzhou.aliyuncs.com/soarch/aspnet:$tag_arm
+  - docker tag mcr.microsoft.com/dotnet/core/aspnet:$tag_x64 registry.cn-hangzhou.aliyuncs.com/soarch/aspnet:$tag_x64
+
+  - docker tag mcr.microsoft.com/dotnet/core/sdk:$tag_sdk_arm registry.cn-hangzhou.aliyuncs.com/soarch/sdk:$tag_arm
+  - docker tag mcr.microsoft.com/dotnet/core/sdk:$tag_x64 registry.cn-hangzhou.aliyuncs.com/soarch/sdk:$tag_x64
+
+  - docker push registry.cn-hangzhou.aliyuncs.com/soarch/aspnet:$tag_arm
+  - docker push registry.cn-hangzhou.aliyuncs.com/soarch/aspnet:$tag_x64
+
+  - docker push registry.cn-hangzhou.aliyuncs.com/soarch/sdk:$tag_arm
+  - docker push registry.cn-hangzhou.aliyuncs.com/soarch/sdk:$tag_x64
