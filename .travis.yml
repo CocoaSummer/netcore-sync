@@ -5,23 +5,23 @@ branches:
   only:
     - master
 script:
-  - docker pull mcr.microsoft.com/dotnet/core/aspnet:$tag_aspnet_arm
-  - docker pull mcr.microsoft.com/dotnet/core/aspnet:$tag_x64
+  - docker pull mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim-arm32v7
+  - docker pull mcr.microsoft.com/dotnet/core/aspnet:3.1
 
-  - docker pull mcr.microsoft.com/dotnet/core/sdk:$tag_sdk_arm
-  - docker pull mcr.microsoft.com/dotnet/core/sdk:$tag_x64
+  - docker pull mcr.microsoft.com/dotnet/core/sdk:3.1-buster-arm32v7
+  - docker pull mcr.microsoft.com/dotnet/core/sdk:3.1
 
 after_success:
   - docker login --username=$docker_username --password=$docker_password registry.cn-hangzhou.aliyuncs.com
 
-  - docker tag mcr.microsoft.com/dotnet/core/aspnet:$tag_aspnet_arm registry.cn-hangzhou.aliyuncs.com/soarch/aspnetcore:$tag_arm
-  - docker tag mcr.microsoft.com/dotnet/core/aspnet:$tag_x64 registry.cn-hangzhou.aliyuncs.com/soarch/aspnetcore:$tag_x64
+  - docker tag mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim-arm32v7 registry.cn-hangzhou.aliyuncs.com/soarch/aspnetcore:3.1-arm
+  - docker tag mcr.microsoft.com/dotnet/core/aspnet:3.1 registry.cn-hangzhou.aliyuncs.com/soarch/aspnetcore:3.1
 
-  - docker tag mcr.microsoft.com/dotnet/core/sdk:$tag_sdk_arm registry.cn-hangzhou.aliyuncs.com/soarch/netcoresdk:$tag_arm
-  - docker tag mcr.microsoft.com/dotnet/core/sdk:$tag_x64 registry.cn-hangzhou.aliyuncs.com/soarch/netcoresdk:$tag_x64
+  - docker tag mcr.microsoft.com/dotnet/core/sdk:3.1-buster-arm32v7 registry.cn-hangzhou.aliyuncs.com/soarch/netcoresdk:3.1-arm
+  - docker tag mcr.microsoft.com/dotnet/core/sdk:3.1 registry.cn-hangzhou.aliyuncs.com/soarch/netcoresdk:3.1
 
-  - docker push registry.cn-hangzhou.aliyuncs.com/soarch/aspnetcore:$tag_arm
-  - docker push registry.cn-hangzhou.aliyuncs.com/soarch/aspnetcore:$tag_x64
+  - docker push registry.cn-hangzhou.aliyuncs.com/soarch/aspnetcore:3.1-arm
+  - docker push registry.cn-hangzhou.aliyuncs.com/soarch/aspnetcore:3.1
 
-  - docker push registry.cn-hangzhou.aliyuncs.com/soarch/netcoresdk:$tag_arm
-  - docker push registry.cn-hangzhou.aliyuncs.com/soarch/netcoresdk:$tag_x64
+  - docker push registry.cn-hangzhou.aliyuncs.com/soarch/netcoresdk:3.1-arm
+  - docker push registry.cn-hangzhou.aliyuncs.com/soarch/netcoresdk:3.1
