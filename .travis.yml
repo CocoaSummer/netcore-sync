@@ -14,14 +14,14 @@ script:
   - docker pull mcr.microsoft.com/dotnet/core/runtime:3.1
   - docker pull mcr.microsoft.com/dotnet/core/sdk:3.1
 
-  # .net core 2.1 for arm32
-  - docker pull mcr.microsoft.com/dotnet/core/aspnet:2.1-stretch-slim-arm32v7
-  - docker pull mcr.microsoft.com/dotnet/core/runtime:2.1-stretch-slim-arm32v7
-  - docker pull mcr.microsoft.com/dotnet/core/sdk:2.1-stretch-arm32v7
-  # .net core 2.1 for amd64
-  - docker pull mcr.microsoft.com/dotnet/core/aspnet:2.1
-  - docker pull mcr.microsoft.com/dotnet/core/runtime:2.1
-  - docker pull mcr.microsoft.com/dotnet/core/sdk:2.1
+  # # .net core 2.1 for arm32
+  # - docker pull mcr.microsoft.com/dotnet/core/aspnet:2.1-stretch-slim-arm32v7
+  # - docker pull mcr.microsoft.com/dotnet/core/runtime:2.1-stretch-slim-arm32v7
+  # - docker pull mcr.microsoft.com/dotnet/core/sdk:2.1-stretch-arm32v7
+  # # .net core 2.1 for amd64
+  # - docker pull mcr.microsoft.com/dotnet/core/aspnet:2.1
+  # - docker pull mcr.microsoft.com/dotnet/core/runtime:2.1
+  # - docker pull mcr.microsoft.com/dotnet/core/sdk:2.1
 
 after_success:
   - docker login --username=$docker_username --password=$docker_password registry.cn-hangzhou.aliyuncs.com
@@ -35,14 +35,14 @@ after_success:
   - docker tag mcr.microsoft.com/dotnet/core/runtime:3.1 registry.cn-hangzhou.aliyuncs.com/csharp/runtime:3.1
   - docker tag mcr.microsoft.com/dotnet/core/sdk:3.1 registry.cn-hangzhou.aliyuncs.com/csharp/sdk:3.1
 
-  # .net core 2.1 for arm32
-  - docker tag mcr.microsoft.com/dotnet/core/aspnet:2.1-stretch-slim-arm32v7 registry.cn-hangzhou.aliyuncs.com/csharp/aspnet:2.1-arm
-  - docker tag mcr.microsoft.com/dotnet/core/runtime:2.1-stretch-slim-arm32v7 registry.cn-hangzhou.aliyuncs.com/csharp/runtime:2.1-arm
-  - docker tag mcr.microsoft.com/dotnet/core/sdk:2.1-stretch-arm32v7 registry.cn-hangzhou.aliyuncs.com/csharp/sdk:2.1-arm
-  # .net core 2.1 for amd64
-  - docker tag mcr.microsoft.com/dotnet/core/aspnet:2.1 registry.cn-hangzhou.aliyuncs.com/csharp/aspnet:2.1
-  - docker tag mcr.microsoft.com/dotnet/core/runtime:2.1 registry.cn-hangzhou.aliyuncs.com/csharp/runtime:2.1
-  - docker tag mcr.microsoft.com/dotnet/core/sdk:2.1 registry.cn-hangzhou.aliyuncs.com/csharp/sdk:2.1
+  # # .net core 2.1 for arm32
+  # - docker tag mcr.microsoft.com/dotnet/core/aspnet:2.1-stretch-slim-arm32v7 registry.cn-hangzhou.aliyuncs.com/csharp/aspnet:2.1-arm
+  # - docker tag mcr.microsoft.com/dotnet/core/runtime:2.1-stretch-slim-arm32v7 registry.cn-hangzhou.aliyuncs.com/csharp/runtime:2.1-arm
+  # - docker tag mcr.microsoft.com/dotnet/core/sdk:2.1-stretch-arm32v7 registry.cn-hangzhou.aliyuncs.com/csharp/sdk:2.1-arm
+  # # .net core 2.1 for amd64
+  # - docker tag mcr.microsoft.com/dotnet/core/aspnet:2.1 registry.cn-hangzhou.aliyuncs.com/csharp/aspnet:2.1
+  # - docker tag mcr.microsoft.com/dotnet/core/runtime:2.1 registry.cn-hangzhou.aliyuncs.com/csharp/runtime:2.1
+  # - docker tag mcr.microsoft.com/dotnet/core/sdk:2.1 registry.cn-hangzhou.aliyuncs.com/csharp/sdk:2.1
 
   # .net core 3.1 for arm32
   - docker push registry.cn-hangzhou.aliyuncs.com/csharp/aspnet:3.1-arm
@@ -52,12 +52,11 @@ after_success:
   - docker push registry.cn-hangzhou.aliyuncs.com/csharp/aspnet:3.1
   - docker push registry.cn-hangzhou.aliyuncs.com/csharp/runtime:3.1
   - docker push registry.cn-hangzhou.aliyuncs.com/csharp/sdk:3.1
-
-  # .net core 2.1 for arm32
-  - docker push registry.cn-hangzhou.aliyuncs.com/csharp/aspnet:2.1-arm
-  - docker push registry.cn-hangzhou.aliyuncs.com/csharp/runtime:2.1-arm
-  - docker push registry.cn-hangzhou.aliyuncs.com/csharp/sdk:2.1-arm
-  # .net core 2.1 for amd64
-  - docker push registry.cn-hangzhou.aliyuncs.com/csharp/aspnet:2.1
-  - docker push registry.cn-hangzhou.aliyuncs.com/csharp/runtime:2.1
-  - docker push registry.cn-hangzhou.aliyuncs.com/csharp/sdk:2.1
+  # # .net core 2.1 for arm32
+  # - docker push registry.cn-hangzhou.aliyuncs.com/csharp/aspnet:2.1-arm
+  # - docker push registry.cn-hangzhou.aliyuncs.com/csharp/runtime:2.1-arm
+  # - docker push registry.cn-hangzhou.aliyuncs.com/csharp/sdk:2.1-arm
+  # # .net core 2.1 for amd64
+  # - docker push registry.cn-hangzhou.aliyuncs.com/csharp/aspnet:2.1
+  # - docker push registry.cn-hangzhou.aliyuncs.com/csharp/runtime:2.1
+  # - docker push registry.cn-hangzhou.aliyuncs.com/csharp/sdk:2.1
