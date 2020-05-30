@@ -52,7 +52,7 @@ after_success:
   - docker push registry.cn-hangzhou.aliyuncs.com/csharp/aspnet:3.1
   - docker push registry.cn-hangzhou.aliyuncs.com/csharp/runtime:3.1
   - docker push registry.cn-hangzhou.aliyuncs.com/csharp/sdk:3.1
-  # # .net core 2.1 for arm32
+  # .net core 2.1 for arm32
   # - docker push registry.cn-hangzhou.aliyuncs.com/csharp/aspnet:2.1-arm
   # - docker push registry.cn-hangzhou.aliyuncs.com/csharp/runtime:2.1-arm
   # - docker push registry.cn-hangzhou.aliyuncs.com/csharp/sdk:2.1-arm
