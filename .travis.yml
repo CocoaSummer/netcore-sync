@@ -16,6 +16,6 @@ after_success:
   - docker tag mcr.microsoft.com/dotnet/core/aspnet:3.1 registry.cn-hangzhou.aliyuncs.com/csharp/aspnet:3.1
   - docker tag mcr.microsoft.com/dotnet/core/sdk:3.1 registry.cn-hangzhou.aliyuncs.com/csharp/sdk:3.1
 
-  # .net core 3.1 for amd64
+  # .net core 3.1 amd64
   - docker push registry.cn-hangzhou.aliyuncs.com/csharp/aspnet:3.1
   - docker push registry.cn-hangzhou.aliyuncs.com/csharp/sdk:3.1
